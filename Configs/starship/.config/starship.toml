@@ -1,0 +1,66 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = '''($git_branch$git_commit$git_state$git_status
+)$hostname$sudo${custom.path}($directory)$shell$character'''
+
+palette = 'nightowl'
+
+[palettes.nightowl]
+palette0 = "#011627"
+palette1 = "#EF5350"
+palette2 = "#22da6e"
+palette3 = "#addb67"
+palette4 = "#82aaff"
+palette5 = "#c792ea"
+palette6 = "#21c7a8"
+palette7 = "#ffffff"
+palette8 = "#575656"
+palette9 = "#ef5350"
+palette10 = "#22da6e"
+palette11 = "#ffeb95"
+palette12 = "#82aaff"
+palette13 = "#c792ea"
+palette14 = "#7fdbca"
+palette15 = "#ffffff"
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol$hostname]($style) '
+trim_at = '.'
+style = 'bold palette10'
+
+[directory]
+truncation_length = 3
+format = '[$read_only]($read_only_style) '
+style = 'palette11'
+
+[custom.path]
+when = true
+command = "pcwd"
+shell = "fish"
+format = '[\[$output\]]($style)'
+style = 'palette11'
+
+[git_branch]
+symbol = "\ue725"
+format = '[$symbol\(](bold palette13)[$branch(:$remote_branch)](palette13)[\)](bold palette13)'
+
+[git_status]
+staged = "[\uf046](bold palette10)"
+modified = "[\uf044](bold palette1)"
+untracked = "[+](bold palette6)"
+format = '([\[$modified$staged$untracked\]]($style) )'
+style = 'palette12'
+
+[shell]
+fish_indicator = "\uee41 "
+nu_indicator = 'nu'
+format = '[$indicator]($style)'
+disabled = false
+
+[character]
+success_symbol = "[\ue285](bold palette2)"
+error_symbol = "[\ue285](bold palette1)"

@@ -1,0 +1,4 @@
+command = /usr/bin/fish
+theme = night-owl-dark
+window-padding-x = 10
+font-size = 16
