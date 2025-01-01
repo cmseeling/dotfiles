@@ -1,6 +1,8 @@
-command = /opt/homebrew/bin/fish
+command = /usr/bin/fish
 theme = night-owl-dark
 window-padding-x = 10
-background-opacity = 0.8
+# background-opacity = 0.8
 font-family = Monaspace Radon
 font-size = 16
+custom-shader = ./shaders/mnoise.glsl
+custom-shader-animation = always
