@@ -8,6 +8,8 @@ starship init fish | source
 fzf --fish | source
 
 set -gx EDITOR nvim
+set -gx DELTA_FEATURES +side-by-side
+fish_add_path $HOME/.local/bin
 
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
