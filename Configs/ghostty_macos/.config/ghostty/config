@@ -1,0 +1,6 @@
+command = /opt/homebrew/bin/fish
+theme = night-owl-dark
+window-padding-x = 10
+background-opacity = 0.8
+font-family = Monaspace Radon
+font-size = 16
