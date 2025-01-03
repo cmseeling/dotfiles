@@ -8,6 +8,7 @@ eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fzf --fish | source
 
 set -gx EDITOR nvim
+set -gx DELTA_FEATURES +side-by-side
 
 function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
