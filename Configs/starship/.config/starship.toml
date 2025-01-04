@@ -6,7 +6,7 @@ add_newline = false
 format = '''($git_branch$git_commit$git_state$git_status
 )$hostname$sudo${custom.path}($directory)$shell$character'''
 
-palette = 'nightowl'
+palette = 'cyberdream'
 
 [palettes.nightowl]
 palette0 = "#011627"
@@ -24,6 +24,24 @@ palette11 = "#ffeb95"
 palette12 = "#82aaff"
 palette13 = "#c792ea"
 palette14 = "#7fdbca"
+palette15 = "#ffffff"
+
+[palettes.cyberdream]
+palette0 = "#16181a"
+palette1 = "#ff6e5e"
+palette2 = "#5eff6c"
+palette3 = "#f1ff5e"
+palette4 = "#5ea1ff"
+palette5 = "#bd5eff"
+palette6 = "#5ef1ff"
+palette7 = "#ffffff"
+palette8 = "#3c4048"
+palette9 = "#ff6e5e"
+palette10 = "#5eff6c"
+palette11 = "#f1ff5e"
+palette12 = "#5ea1ff"
+palette13 = "#bd5eff"
+palette14 = "#5ef1ff"
 palette15 = "#ffffff"
 
 [hostname]
