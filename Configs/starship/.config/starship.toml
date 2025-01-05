@@ -48,19 +48,18 @@ palette15 = "#ffffff"
 ssh_only = false
 format = '[$ssh_symbol$hostname]($style) '
 trim_at = '.'
-style = 'bold palette10'
+style = 'bold palette3'
 
 [directory]
 truncation_length = 3
 format = '[$read_only]($read_only_style) '
-style = 'palette11'
 
 [custom.path]
 when = true
 command = "pcwd"
 shell = "fish"
 format = '[\[$output\]]($style)'
-style = 'palette11'
+style = 'palette12'
 
 [git_branch]
 symbol = "\ue725"
@@ -71,13 +70,14 @@ staged = "[\uf046](bold palette10)"
 modified = "[\uf044](bold palette1)"
 untracked = "[+](bold palette6)"
 format = '([\[$modified$staged$untracked\]]($style) )'
-style = 'palette12'
+style = 'palette14'
 
 [shell]
 fish_indicator = "\uee41 "
 nu_indicator = 'nu'
 format = '[$indicator]($style)'
 disabled = false
+style = 'bold palette14'
 
 [character]
 success_symbol = "[\ue285](bold palette2)"
