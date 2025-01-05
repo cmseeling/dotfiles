@@ -74,7 +74,7 @@ style = 'palette14'
 
 [shell]
 fish_indicator = "\uee41 "
-nu_indicator = 'nu'
+nu_indicator = '󰟆 '
 format = '[$indicator]($style)'
 disabled = false
 style = 'bold palette14'
