@@ -6,6 +6,7 @@ source ~/.asdf/asdf.fish
 starship init fish | source
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fzf --fish | source
+zoxide init fish | source
 
 set -gx EDITOR nvim
 set -gx DELTA_FEATURES +side-by-side
