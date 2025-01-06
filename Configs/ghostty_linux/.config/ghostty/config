@@ -1,5 +1,6 @@
 command = /usr/bin/fish
-theme = night-owl-dark
+# theme = night-owl-dark
+theme = cyberdream
 window-padding-x = 10
 # background-opacity = 0.8
 font-family = Monaspace Radon
