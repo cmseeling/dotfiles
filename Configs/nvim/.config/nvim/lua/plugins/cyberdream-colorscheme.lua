@@ -1,5 +1,12 @@
 return {
-  { "scottmckendry/cyberdream.nvim", lazy = false, priority = 1000 },
+  {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
+  },
   {
     "LazyVim/LazyVim",
     opts = {
