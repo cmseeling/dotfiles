@@ -18,5 +18,8 @@
     conflictstyle = zdiff3
 
 [alias]
+    co = checkout
+    nb = checkout -b
+    cm = commit -m
     ac = "!f() { git add . && git commit -m \"$1\"; }; f"
     acp = "!f() { git add . && git commit -m \"$1\" && git push; }; f"
