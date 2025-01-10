@@ -1,7 +1,8 @@
 command = /opt/homebrew/bin/fish
 theme = cyberdream
 window-padding-x = 10
-background-opacity = 0.8
+background-opacity = 0.6
+background-blur-radius = 10
 font-family = Monaspace Radon
 font-size = 16
 custom-shader = ./shaders/mnoise.glsl
