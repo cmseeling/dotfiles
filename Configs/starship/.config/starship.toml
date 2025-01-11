@@ -20,7 +20,6 @@ $git_status]\
 (bg:palette8)\
 [](fg:palette8) )\
 $fill\
-${custom.path}\
 $directory\
 $line_break\
 $character\
@@ -111,7 +110,8 @@ style = 'palette12 bg:palette8'
 
 [directory]
 truncation_length = 3
-format = '[$read_only]($read_only_style)[](fg:palette8) '
+format = '[](fg:palette8)[ ](bold palette12 bg:palette8)[\[$path\]]($style)[$read_only]($read_only_style)[](fg:palette8) '
+style = 'palette12 bg:palette8'
 read_only_style = 'red bg:palette8'
 
 [fill]
