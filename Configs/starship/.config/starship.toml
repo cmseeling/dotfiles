@@ -12,10 +12,13 @@ format = """
 $sudo\
 $shell]\
 (bg:palette8)\
-($git_branch\
+( [──](bold palette14) [](fg:palette8)\
+[$git_branch\
 $git_commit\
 $git_state\
-$git_status)\
+$git_status]\
+(bg:palette8)\
+[](fg:palette8) )\
 $fill\
 ${custom.path}\
 $directory\
@@ -83,7 +86,7 @@ style = 'bold palette14 bg:palette8'
 
 [git_branch]
 symbol = "\ue725"
-format = ' [──](bold palette14) [](fg:palette8)[$symbol\(]($style)[$branch(:$remote_branch)](palette13 bg:palette8)[\)]($style)'
+format = '[$symbol\(]($style)[$branch(:$remote_branch)](palette13 bg:palette8)[\)]($style)'
 style = 'bold palette13 bg:palette8'
 
 [git_commit]
@@ -96,7 +99,7 @@ style = 'bold palette3 bg:palette8'
 staged = "[\uf046](bold darkgreen bg:palette8)"
 modified = "[\uf044](bold palette1 bg:palette8)"
 untracked = "[+](bold palette3 bg:palette8)"
-format = '([\[$modified$staged$untracked\]]($style)[](fg:palette8) )'
+format = '([\[$modified$staged$untracked\]]($style))'
 style = 'palette13 bg:palette8'
 
 [custom.path]
