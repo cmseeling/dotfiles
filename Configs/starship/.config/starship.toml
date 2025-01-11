@@ -79,6 +79,7 @@ disabled = false
 [shell]
 fish_indicator = "\uee41 "
 nu_indicator = '󰟆 '
+powershell_indicator = ' '
 format = '[$indicator]($style)[](fg:palette8)'
 disabled = false
 style = 'bold palette14 bg:palette8'
@@ -120,6 +121,6 @@ style = 'bold palette14'
 
 [character]
 format = """
-[╰─$symbol](fg:palette14) """
+[╰$symbol](fg:palette14) """
 success_symbol = "[\ue285](bold darkgreen)"
 error_symbol = "[\ue285](bold palette1)"
