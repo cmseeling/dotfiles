@@ -8,3 +8,6 @@ font-family = Monaspace Radon
 font-size = 16
 # custom-shader = ./shaders/mnoise.glsl
 # custom-shader-animation = always
+keybind = ctrl+alt+c = \x03
+keybind = ctrl+shift+c = \x03
+keybind = ctrl+c=copy_to_clipboard
