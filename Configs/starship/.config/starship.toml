@@ -9,7 +9,6 @@ add_newline = false
 format = """
 [╭](fg:palette14)\
 [$hostname\
-$sudo\
 $shell]\
 (bg:palette8)\
 ( [──](bold palette14) [](fg:palette8)\
@@ -71,11 +70,11 @@ format = '[](fg:palette8)[$ssh_symbol$hostname]($style) '
 trim_at = '.'
 style = 'bold palette3 bg:palette8'
 
-[sudo]
-symbol = ' '
-format = '[$symbol]($style)'
-style = 'bold palette1 bg:palette8'
-disabled = false
+# [sudo]
+# symbol = ' '
+# format = '[$symbol]($style)'
+# style = 'bold palette1 bg:palette8'
+# disabled = false
 
 [shell]
 fish_indicator = "\uee41 "
@@ -104,8 +103,8 @@ style = 'palette13 bg:palette8'
 
 [custom.path]
 when = true
-command = "pcwd"
-shell = "fish"
+command = "~/pcwd.sh"
+shell = "dash"
 format = ' [](fg:palette8)[ ](bold palette12 bg:palette8)[\[$output\]]($style)'
 style = 'palette12 bg:palette8'
 
