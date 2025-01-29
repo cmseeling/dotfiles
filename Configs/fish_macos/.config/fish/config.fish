@@ -25,3 +25,4 @@ end
 abbr -a ls lsd -Al --tree --depth 1
 abbr -a ls-al lsd -Al --ignore-config
 abbr -a cd z
+abbr -a .. up
