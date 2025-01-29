@@ -10,8 +10,8 @@ function up
     end
 
     set -l n $argv[1]
-    if not string match -qr '^[0-9]+$' -- $n
-        echo "Error: Argument must be a positive integer."
+    if not string match -qr '^[1-9]+$' -- $n
+        echo "Error: Argument must be greater than 0."
         return 1
     end
 
