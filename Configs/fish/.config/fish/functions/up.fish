@@ -1,6 +1,6 @@
 function up
     if test (count $argv) -eq 0
-        cd ..
+        z ..
         return
     end
 
@@ -20,5 +20,5 @@ function up
         set path "$path../"
     end
 
-    cd $path
+    z $path
 end
