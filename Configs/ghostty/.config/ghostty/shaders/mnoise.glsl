@@ -115,5 +115,5 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
   fragColor = vec4(
       ghosttyCol.rgb +
           mix(col4, fcol, smoothstep(fw, -fw, d) * smoothstep(fw, -fw, d2)),
-      ghosttyCol.a);
+      0.10);
 }
