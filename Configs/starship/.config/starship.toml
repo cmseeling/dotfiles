@@ -122,3 +122,9 @@ format = """
 [╰─$symbol](fg:palette14) """
 success_symbol = "[\ue285](bold darkgreen)"
 error_symbol = "[\ue285](bold palette1)"
+
+[time]
+disabled = false
+time_format = "%D %r"
+format = '[$time](palette4)[❯](palette2)'
+

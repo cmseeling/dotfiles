@@ -3,6 +3,9 @@ if status is-interactive
 end
 
 source ~/.asdf/asdf.fish
+function starship_transient_prompt_func
+    starship module time
+end
 starship init fish | source
 enable_transience
 eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
