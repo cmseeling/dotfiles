@@ -2,7 +2,7 @@ local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
 
-local cpu = sbar.add("graph", "widgets.cpu" , 30, {
+local memory = sbar.add("graph", "widgets.memory" , 30, {
   position = "right",
   graph = { color = colors.blue },
   background = {
@@ -11,9 +11,9 @@ local cpu = sbar.add("graph", "widgets.cpu" , 30, {
     border_color = { alpha = 0 },
     drawing = true,
   },
-  icon = { string = icons.cpu },
+  icon = { string = icons.memory },
   label = {
-    string = "cpu ??%",
+    string = "memory ??%",
     font = {
       family = settings.font.numbers,
       style = settings.font.style_map["Bold"],
@@ -27,10 +27,10 @@ local cpu = sbar.add("graph", "widgets.cpu" , 30, {
   padding_right = settings.paddings + 6
 })
 
-cpu:subscribe("system_stats", function(env)
+memory:subscribe("system_stats", function(env)
   -- Also available: env.user_load, env.sys_load
-  local load = tonumber(env.CPU_USAGE)
-  cpu:push({ load / 100. })
+  local load = tonumber(env.RAM_USAGE)
+  memory:push({ load / 100. })
 
   local color = colors.blue
   if load > 30 then
@@ -43,23 +43,19 @@ cpu:subscribe("system_stats", function(env)
     end
   end
 
-  cpu:set({
+  memory:set({
     graph = { color = color },
-    label = "" .. env.CPU_USAGE .. "%",
+    label = "" .. env.RAM_USAGE .. "%",
   })
 end)
 
-cpu:subscribe("mouse.clicked", function(env)
-  sbar.exec("open -a 'Activity Monitor'")
-end)
-
--- Background around the cpu item
-sbar.add("bracket", "widgets.cpu.bracket", { cpu.name }, {
+-- Background around the memory item
+sbar.add("bracket", "widgets.memory.bracket", { memory.name }, {
   background = { color = colors.bg1 }
 })
 
--- Background around the cpu item
-sbar.add("item", "widgets.cpu.padding", {
+-- Background around the memory item
+sbar.add("item", "widgets.memory.padding", {
   position = "right",
   width = settings.group_paddings
 })
