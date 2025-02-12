@@ -77,7 +77,7 @@ battery:subscribe({"routine", "power_source_change", "system_woke"}, function()
   end)
 end)
 
-battery:subscribe("mouse.entered", function(env)
+battery:subscribe("mouse.clicked", function(env)
   local drawing = battery:query().popup.drawing
   battery:set( { popup = { drawing = "toggle" } })
 
@@ -88,11 +88,6 @@ battery:subscribe("mouse.entered", function(env)
       remaining_time:set( { label = label })
     end)
   end
-end)
-
-battery:subscribe("mouse.exited", function(env)
-  local drawing = battery:query().popup.drawing
-  battery:set( { popup = { drawing = "toggle" } })
 end)
 
 sbar.add("bracket", "widgets.battery.bracket", { battery.name }, {
