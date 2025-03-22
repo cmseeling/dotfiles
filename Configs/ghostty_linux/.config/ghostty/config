@@ -1,13 +1,14 @@
-command = /home/linuxbrew/.linuxbrew/bin/fish
+command = /usr/bin/fish
 # theme = night-owl-dark
 theme = cyberdream
 window-padding-x = 10
 background-opacity = 0.9
 background-blur-radius = 20
-font-family = Monaspace Radon
+font-family = Monaspace Radon Var
 font-size = 16
 # custom-shader = ./shaders/mnoise.glsl
 # custom-shader-animation = always
 keybind = ctrl+alt+c=text:\x03
 keybind = ctrl+shift+c=text:\x03
 keybind = performable:ctrl+c=copy_to_clipboard
+gtk-single-instance = true
