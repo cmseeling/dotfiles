@@ -5,3 +5,7 @@ Configs/ghostty_linux/.config/ghostty/shaders
 Configs/ghostty_linux/.config/ghostty/themes
 Configs/ghostty_macos/.config/ghostty/shaders
 Configs/ghostty_macos/.config/ghostty/themes
+Configs/niri-wm/.config/systemd/user/niri.service.wants/mako.service
+Configs/niri-wm/.config/systemd/user/niri.service.wants/waybar.service
+Configs/niri-wm/.config/systemd/user/niri.service.wants/swaybg.service
+Configs/niri-wm/.config/systemd/user/niri.service.wants/swayidle.service
