@@ -1,4 +1,4 @@
-command = /usr/bin/fish
+command = /home/linuxbrew/.linuxbrew/bin/fish
 # theme = night-owl-dark
 theme = cyberdream
 window-padding-x = 10
