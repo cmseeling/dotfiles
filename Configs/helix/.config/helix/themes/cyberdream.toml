@@ -1,7 +1,19 @@
 # cyberdream theme for helix
 "ui.background" = "bg"
 "ui.text" = "fg"
-"ui.cursor" = { bg = "fg", fg = "bg" }
+#"ui.cursor" = { bg = "fg", fg = "bg" }
+"ui.cursor" = { fg = "bg", bg = "fg" }
+# "ui.cursor.primary" = { fg = "base", bg = "rosewater" }
+"ui.cursor.match" = { fg = "orange", modifiers = ["bold"] }
+
+"ui.cursor.primary.normal" = { fg = "bg", bg = "fg" }
+"ui.cursor.primary.insert" = { fg = "bg", bg = "cyan" }
+"ui.cursor.primary.select" = { fg = "bg", bg = "fg" }
+
+"ui.cursor.normal" = { fg = "bg", bg = "fg" }
+"ui.cursor.insert" = { fg = "bg", bg = "cyan" }
+"ui.cursor.select" = { fg = "bg", bg = "fg" }
+# 
 "ui.linenr" = "grey"
 "ui.statusline" = { fg = "cyan" }
 "ui.selection" = "green"
