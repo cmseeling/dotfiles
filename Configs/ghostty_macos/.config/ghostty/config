@@ -3,7 +3,11 @@ theme = cyberdream
 window-padding-x = 10
 background-opacity = 0.6
 background-blur-radius = 10
+font-family = Annotation Mono
 font-family = Monaspace Radon
+font-feature = "liga"
+font-feature = "ss01"
+font-variation = slnt=-15
 font-size = 16
 custom-shader = shaders/mnoise.glsl
 custom-shader-animation = always
