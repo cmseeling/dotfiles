@@ -9,6 +9,7 @@ font-family = Monaspace Radon Var
 font-feature = "liga"
 font-feature = "ss01"
 font-variation = slnt=-15
+font-variation = wght=500
 font-size = 16
 # custom-shader = ./shaders/mnoise.glsl
 # custom-shader-animation = always
