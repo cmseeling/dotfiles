@@ -1,1 +1,12 @@
 theme = "cyberdream"
+
+[editor]
+line-number = "relative"
+# cursorline = true
+# color-modes = true
+
+[editor.cursor-shape]
+select = "underline"
+
+[editor.indent-guides]
+render = true
