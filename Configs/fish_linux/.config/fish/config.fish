@@ -12,7 +12,7 @@ eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fzf --fish | source
 zoxide init fish | source
 
-set -gx EDITOR nvim
+set -gx EDITOR hx
 set -gx DELTA_FEATURES +side-by-side
 
 function y
