@@ -11,10 +11,14 @@ font-feature = "ss01"
 font-variation = slnt=-10
 font-variation = wght=500
 font-size = 16
+
 # custom-shader = ./shaders/mnoise.glsl
 # custom-shader-animation = always
+gtk-single-instance = true
+
 keybind = ctrl+alt+c=text:\x03
 keybind = ctrl+shift+c=text:\x03
 keybind = performable:ctrl+c=copy_to_clipboard
 keybind = ctrl+v=paste_from_clipboard
-gtk-single-instance = true
+keybind = ctrl+t=new_tab
+keybind = ctrl+shift+d=new_split:right
