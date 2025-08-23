@@ -2,13 +2,13 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 end
 
-source ~/.asdf/asdf.fish
+eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# source ~/.asdf/asdf.fish
 function starship_transient_prompt_func
     starship module time
 end
 starship init fish | source
 enable_transience
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 fzf --fish | source
 zoxide init fish | source
 
