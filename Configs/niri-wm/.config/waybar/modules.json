@@ -1,0 +1,263 @@
+{
+  // Workspaces
+  "niri/workspaces": {
+    "on-click": "activate"
+  },
+
+  // Taskbar
+  "wlr/taskbar": {
+    // "format": "{icon}",
+    // "icon-size": 18,
+    // "tooltip-format": "{title}",
+    // "on-click": "activate",
+    // // "on-click-middle": "close",
+    // "ignore-list": ["Alacritty", "kitty", "ghostty"],
+    // "app_ids-mapping": {
+    //   "firefoxdeveloperedition": "firefox-developer-edition"
+    // },
+    // "rewrite": {
+    //   "Firefox Web Browser": "Firefox",
+    //   "Foot Server": "Terminal"
+    // }
+    "format": "{icon} {name}",
+    "on-click": "activate"
+  },
+
+  // niri Window
+  "niri/window": {
+    "icon": true,
+    "format": "{}",
+    "rewrite": {
+      "(.*) - Brave": "$1",
+      "(.*) - Chromium": "$1",
+      "(.*) - Brave Search": "$1",
+      "(.*) - Outlook": "$1",
+      "(.*) Microsoft Teams": "$1"
+    },
+    "separate-outputs": true
+  },
+
+  // Empty
+  "custom/empty": {
+    "format": ""
+  },
+
+    // Tools
+  "custom/tools": {
+    "format": "",
+    "tooltip-format": "Tools"
+  },
+
+  // Updates Count
+  "custom/updates": {
+      "format": "{} {icon}",
+      "return-type": "json",
+      "format-icons": {
+          "has-updates": "󱍷",
+          "updated": "󰂪"
+      },
+      "exec-if": "which waybar-module-pacman-updates",
+      "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+  },
+
+  // wofi Application Launcher
+  "custom/appmenu": {
+    "format": "   ",
+    "on-click": "sleep 0.2;wofi -show drun -replace",
+    "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
+  },
+
+  // wofi Application Launcher
+  "custom/appmenuicon": {
+    "format": "",
+    "on-click": "sleep 0.2;wofi -show drun -replace",
+    "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings"
+  },
+
+  // Power Menu
+  "custom/exit": {
+    "format": " 󰐥 ",
+    "on-click": "~/.config/waybar/scripts/power-menu.sh",
+    "tooltip-format": "Power Menu"
+  },
+
+  // Keyboard State
+  "keyboard-state": {
+    "numlock": true,
+    "capslock": true,
+    "format": "{name} {icon}",
+    "format-icons": {
+      "locked": "",
+      "unlocked": ""
+    }
+  },
+
+  // System tray
+  "tray": {
+    "icon-size": 21,
+    "spacing": 10
+  },
+
+  // Clock
+  "clock": {
+    // "format": "{:%H:%M %a}",
+    // "on-click": "ags -t calendar",
+    // "tooltip": false
+    "format": "  {:%I:%M %p      %D}",
+    "tooltip-format": "{:%A, %B %d, %Y}"
+  },
+
+  // Weather
+  "custom/weather": {
+    "format": "{}",
+    "tooltip:": true,
+    "interval": 3600,
+    "exec": "wttrbar --ampm --fahrenheit --mph --main-indicator temp_F --date-format %D",
+    "return-type": "json"
+  },
+
+  // Screenshot utility
+  "custom/screenshot_t": {
+    "format":" ",
+    "on-click": "niri msg action screenshot-screen",
+    "on-click-right":"niri msg action screenshot"
+  },
+
+  // Machine Stats
+  "cpu": {
+    "interval": 1,
+    "format": "{max_frequency}GHz <span color=\"darkgray\">| {usage}%</span>",
+    "max-length": 13,
+    "min-length": 13
+  },
+
+  "memory": {
+    "interval": 30,
+    "format": "  {used:0.2f} / {total:0.0f} GB",
+    "on-click": "alacritty -e btop"
+  },
+
+  "custom/storage": {
+    "format": " {}",
+    "format-alt": "{percentage}% ",
+    "format-alt-click": "click-right",
+    "return-type": "json",
+    "interval": 60,
+    "exec": "~/.config/waybar/scripts/storage.sh"
+  },
+
+  "network": {
+    "format": " {bandwidthUpBits}  {bandwidthDownBits}",
+    "format-disconnected": "",
+    "on-click": "wl-copy $(ip address show up scope global | grep inet | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c5-)",
+    "on-click-right": "wl-copy $(ip address show up scope global | grep inet6 | head -n1 | cut -d/ -f 1 | tr -d [:space:] | cut -c6-)",
+    "tooltip-format": "{ifname}: {ipaddr}/{cidr}",
+    "interval": 10
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+        "activated": "",
+        "deactivated": ""
+    },
+    "tooltip": "true"
+  },
+
+  "wireplumber": {
+    "on-click": "pavucontrol",
+    "on-click-right": "amixer sset Master toggle 1>/dev/null",
+    //on-click: "${wpctl} set-mute @DEFAULT_AUDIO_SINK@ toggle";
+    //on-scroll-down: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04+";
+    //on-scroll-up: "${wpctl} set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 0.04-";
+    "format": "<span foreground='#fab387'>{icon}</span>  {volume}%",
+    "format-muted": " ",
+    "format-source": "",
+    "format-source-muted": "",
+    //"format-muted": "<span foreground='#fab387'> </span>",
+    //"format-icons": [ "<span foreground='#fab387'></span>" ]
+    "format-icons": {
+        "headphone": " ",
+        "hands-free": " ",
+        "headset": " ",
+        "phone": " ",
+        "portable": " ",
+        "car": " ",
+        "default": [" ", " ", " "]
+    },
+  },
+
+  "niri/language": {
+    "format": "/ K {short}"
+  },
+
+  // Battery
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-alt": "{icon}  {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": [" ", " ", " ", " ", " "]
+  },
+
+  // Pulseaudio
+  "pulseaudio": {
+    // "scroll-step": 1, // %, can be a float
+    "format": "{icon}  {volume}%",
+    "format-bluetooth": "{volume}% {icon} {format_source}",
+    "format-bluetooth-muted": " {icon} {format_source}",
+    "format-muted": " {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+    },
+    "on-click": "pavucontrol"
+  },
+
+  // Bluetooth
+  "bluetooth": {
+    "format": " {status}",
+    "format-disabled": "",
+    "format-off": "",
+    "interval": 30,
+    "on-click": "blueman-manager",
+    "format-no-controller": ""
+  },
+
+  // Other
+  "user": {
+    "format": "{user}",
+    "interval": 60,
+    "icon": false
+  },
+
+  // backlight:
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "scroll-step": 1
+  }
+}
