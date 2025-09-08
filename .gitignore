@@ -10,3 +10,5 @@ Configs/niri-wm/.config/systemd/user/niri.service.wants/waybar.service
 Configs/niri-wm/.config/systemd/user/niri.service.wants/swaybg.service
 Configs/niri-wm/.config/systemd/user/niri.service.wants/swayidle.service
 Configs/cachyos-fish/.config/fish/completions/asdf.fish
+Configs/zed/.config/zed/prompts
+
