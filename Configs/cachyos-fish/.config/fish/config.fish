@@ -60,7 +60,7 @@ enable_transience
 fzf --fish | source
 zoxide init fish | source
 
-set -gx EDITOR helix
+set -gx EDITOR hx
 set -gx DELTA_FEATURES +side-by-side
 
 # homebrew
@@ -84,7 +84,7 @@ abbr -a ls-al lsd -Al --ignore-config
 abbr -a cd z
 abbr -a .. up
 
-abbr -a hx helix
+# abbr -a hx helix
 
 # Common use taken from CachyOS Fish default config
 abbr -a grubup "sudo grub-mkconfig -o /boot/grub/grub.cfg"
@@ -107,3 +107,10 @@ abbr -a jctl "journalctl -p 3 -xb"
 
 # Recent installed packages
 abbr -a recent "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
+# pnpm
+set -gx PNPM_HOME "/home/chris/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
