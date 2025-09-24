@@ -21,5 +21,6 @@
     "light": "One Light",
     "dark": "Cyberdream dark"
   },
-  "tab_size": 2
+  "tab_size": 2,
+  "helix_mode": true
 }

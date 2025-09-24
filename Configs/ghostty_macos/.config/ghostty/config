@@ -1,8 +1,9 @@
 command = /opt/homebrew/bin/fish
 theme = cyberdream
+macos-titlebar-style = tabs
 window-padding-x = 10
-background-opacity = 0.6
-background-blur-radius = 10
+background-opacity = 0.7
+background-blur-radius = 20
 font-family = Annotation Mono
 font-family = Monaspace Radon
 font-feature = "liga"
@@ -10,6 +11,6 @@ font-feature = "ss01"
 font-variation = slnt=-10
 font-variation = wght=600
 font-size = 16
-custom-shader = shaders/mnoise.glsl
-custom-shader-animation = always
+# custom-shader = shaders/mnoise.glsl
+# custom-shader-animation = always
 
