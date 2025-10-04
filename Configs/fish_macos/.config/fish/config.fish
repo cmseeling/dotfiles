@@ -12,8 +12,9 @@ enable_transience
 fzf --fish | source
 zoxide init fish | source
 
-set -gx EDITOR nvim
+set -gx EDITOR hx
 set -gx DELTA_FEATURES +side-by-side
+set -gx POSTING_PAGER hx
 fish_add_path $HOME/.local/bin
 
 function y
