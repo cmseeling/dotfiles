@@ -85,5 +85,5 @@ error_symbol = '[X>](palette9)'
 [time]
 disabled = false
 time_format = "%D %r"
-format = '[$time](palette4)[❯](palette2)'
+format = '[$time](palette4)[>](palette2)'
 
