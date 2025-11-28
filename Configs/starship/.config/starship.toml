@@ -7,21 +7,11 @@ add_newline = false
 # )$hostname$sudo${custom.path}($directory)$shell$character'''
 
 format = """
-[╭](fg:palette14)\
-[$hostname\
-$shell]\
-(bg:palette8)\
-( [──](bold palette14) [](fg:palette8)\
-[$git_branch\
-$git_commit\
-$git_state\
-$git_status]\
-(bg:palette8)\
-[](fg:palette8) )\
-$fill\
+$username\
+$hostname\
+$shell\
 ${custom.path}\
-$directory\
-$line_break\
+$git_branch\
 $character\
 """
 
@@ -64,64 +54,33 @@ palette14 = "#5ef1ff"
 palette15 = "#ffffff"
 darkgreen = "#12A585"
 
+[username]
+show_always = true
+format = '[$user](bold palette10)'
+
 [hostname]
 ssh_only = false
-format = '[](fg:palette8)[$ssh_symbol$hostname]($style) '
+ssh_symbol = '@'
+format = '[$ssh_symbol$hostname]($style)'
 trim_at = '.'
-style = 'bold palette3 bg:palette8'
-
-# [sudo]
-# symbol = ' '
-# format = '[$symbol]($style)'
-# style = 'bold palette1 bg:palette8'
-# disabled = false
+style = 'bold palette3'
 
 [shell]
-fish_indicator = "\uee41 "
-nu_indicator = '󰟆 '
-format = '[$indicator]($style)[](fg:palette8)'
+format = '[/$indicator](palette12)'
 disabled = false
-style = 'bold palette14 bg:palette8'
 
 [git_branch]
-symbol = "\ue725"
-format = '[$symbol\(]($style)[$branch(:$remote_branch)](palette13 bg:palette8)[\)]($style)'
-style = 'bold palette13 bg:palette8'
-
-[git_commit]
-style = 'bold palette2 bg:palette8'
-
-[git_state]
-style = 'bold palette3 bg:palette8'
-
-[git_status]
-staged = "[\uf046](bold darkgreen bg:palette8)"
-modified = "[\uf044](bold palette1 bg:palette8)"
-untracked = "[+](bold palette3 bg:palette8)"
-format = '([\[$modified$staged$untracked\]]($style))'
-style = 'palette13 bg:palette8'
+format = '[\(*\)](palette13)'
 
 [custom.path]
 when = true
 command = "~/pcwd.sh"
 shell = "dash"
-format = ' [](fg:palette8)[ ](bold palette12 bg:palette8)[\[$output\]]($style)'
-style = 'palette12 bg:palette8'
-
-[directory]
-truncation_length = 3
-format = '[$read_only]($read_only_style)[](fg:palette8) '
-read_only_style = 'red bg:palette8'
-
-[fill]
-symbol = '─'
-style = 'bold palette14'
+format = '[\[$output\]](palette14)'
 
 [character]
-format = """
-[╰─$symbol](fg:palette14) """
-success_symbol = "[\ue285](bold darkgreen)"
-error_symbol = "[\ue285](bold palette1)"
+success_symbol = '[>](darkgreen)'
+error_symbol = '[X>](palette9)'
 
 [time]
 disabled = false
