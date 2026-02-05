@@ -7,6 +7,12 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet"
+    }
+  },
   "ui_font_family": "Monaspace Krypton",
   "ui_font_size": 16,
   "buffer_font_family": "Monaspace Krypton",
