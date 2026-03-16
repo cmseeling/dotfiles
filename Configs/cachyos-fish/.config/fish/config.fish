@@ -31,24 +31,10 @@ if test -d ~/Applications/depot_tools
     end
 end
 
-# ASDF configuration code
-if test -z $ASDF_DATA_DIR
-    set _asdf_shims "$HOME/.asdf/shims"
-else
-    set _asdf_shims "$ASDF_DATA_DIR/shims"
-end
-
 # Fish command history
 function history
     builtin history --show-time='%F %T '
 end
-
-# Do not use fish_add_path (added in Fish 3.2) because it
-# potentially changes the order of items in PATH
-if not contains $_asdf_shims $PATH
-    set -gx --prepend PATH $_asdf_shims
-end
-set --erase _asdf_shims
 
 # Starship Prompt
 function starship_transient_prompt_func
@@ -62,11 +48,6 @@ zoxide init fish | source
 
 set -gx EDITOR hx
 set -gx DELTA_FEATURES +side-by-side
-
-# homebrew
-eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-# uv
-fish_add_path "/home/chris/.local/bin"
 
 # yazi shortcut
 function y
@@ -108,10 +89,3 @@ abbr -a jctl "journalctl -p 3 -xb"
 
 # Recent installed packages
 abbr -a recent "expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-
-# pnpm
-set -gx PNPM_HOME "/home/chris/.local/share/pnpm"
-if not string match -q -- $PNPM_HOME $PATH
-    set -gx PATH "$PNPM_HOME" $PATH
-end
-# pnpm end
