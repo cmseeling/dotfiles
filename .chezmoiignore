@@ -1,1 +1,5 @@
 README.md
+
+{{- if ne .distro "fedora" }}
+.bashrc
+{{- end }}
