@@ -6,7 +6,8 @@
 	name = chris
 
 [credential]
-    helper = /usr/lib/git-core/git-credential-libsecret
+    helper = {{ if eq .distro "cachyos" }}/usr/lib/git-core/git-credential-libsecret{{ else if eq .distro "fedora" }}/usr/libexec/git-core/git-credential-libsecret{{- end }}
+	
 
 [interactive]
     diffFilter = delta --color-only
