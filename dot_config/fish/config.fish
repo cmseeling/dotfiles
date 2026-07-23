@@ -1,0 +1,124 @@
+source /usr/share/cachyos-fish-config/conf.d/done.fish
+# source /usr/share/cachyos-fish-config/cachyos-config.fish
+
+# overwrite greeting
+# potentially disabling fastfetch
+#function fish_greeting
+#    # smth smth
+#end
+
+## Run fastfetch as welcome message
+function fish_greeting
+    fastfetch
+end
+
+# Format man pages
+set -x MANROFFOPT -c
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+
+# Set settings for https://github.com/franciscolourenco/done
+set -U __done_min_cmd_duration 10000
+set -U __done_notification_urgency_level low
+
+## Environment setup
+# Apply .profile: use this to put fish compatible .profile stuff in
+if test -f ~/.fish_profile
+    source ~/.fish_profile
+end
+
+# Append common directories for executable files to $PATH
+fish_add_path ~/.local/bin ~/.cargo/bin ~/Applications/depot_tools
+
+## Functions
+# Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
+function __history_previous_command
+    switch (commandline -t)
+        case "!"
+            commandline -t $history[1]
+            commandline -f repaint
+        case "*"
+            commandline -i !
+    end
+end
+
+function __history_previous_command_arguments
+    switch (commandline -t)
+        case "!"
+            commandline -t ""
+            commandline -f history-token-search-backward
+        case "*"
+            commandline -i '$'
+    end
+end
+
+if [ "$fish_key_bindings" = fish_vi_key_bindings ]
+
+    bind -Minsert ! __history_previous_command
+    bind -Minsert '$' __history_previous_command_arguments
+else
+    bind ! __history_previous_command
+    bind '$' __history_previous_command_arguments
+end
+
+# Fish command history
+function history
+    builtin history --show-time='%F %T ' $argv
+end
+
+# Starship Prompt
+function starship_transient_prompt_func
+    starship module time
+end
+starship init fish | source
+enable_transience
+
+fzf --fish | source
+zoxide init fish | source
+
+set -gx EDITOR hx
+set -gx DELTA_FEATURES +side-by-side
+
+# yazi shortcut
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+
+# directory manip aliases
+abbr -a ls eza -al --total-size --no-user --icons=auto -TL 1
+abbr -a ls-al ls -al
+# abbr -a cd z
+abbr -a .. up
+
+# Common use
+alias fixpacman="sudo rm /var/lib/pacman/db.lck"
+alias tarnow='tar -acf '
+alias untar='tar -zxvf '
+alias wget='wget -c '
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias hw='hwinfo --short' # Hardware Info
+alias big="expac -H M '%m\t%n' | sort -h | nl" # Sort installed packages according to size in MB
+alias gitpkg='pacman -Q | grep -i "\-git" | wc -l' # List amount of -git packages
+alias update='sudo cachyos-rate-mirrors && sudo pacman -Syu'
+
+# Get fastest mirrors
+alias mirror="sudo cachyos-rate-mirrors"
+
+# Cleanup orphaned packages
+alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
+
+# Get the error messages from journalctl
+alias jctl="journalctl -p 3 -xb"
+
+# Recent installed packages
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"

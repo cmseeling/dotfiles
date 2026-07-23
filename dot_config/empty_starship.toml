@@ -1,0 +1,125 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = """
+[╭](fg:palette14)\
+[$hostname\
+$shell]\
+(bg:palette8)\
+( [──](bold palette14) [](fg:palette8)\
+[$git_branch\
+$git_commit\
+$git_state\
+$git_status]\
+(bg:palette8)\
+[](fg:palette8) )\
+$fill\
+${custom.path}\
+$directory\
+$line_break\
+$character\
+"""
+
+palette = 'cyberdream'
+
+[palettes.nightowl]
+palette0 = "#011627"
+palette1 = "#EF5350"
+palette2 = "#22da6e"
+palette3 = "#addb67"
+palette4 = "#82aaff"
+palette5 = "#c792ea"
+palette6 = "#21c7a8"
+palette7 = "#ffffff"
+palette8 = "#575656"
+palette9 = "#ef5350"
+palette10 = "#22da6e"
+palette11 = "#ffeb95"
+palette12 = "#82aaff"
+palette13 = "#c792ea"
+palette14 = "#7fdbca"
+palette15 = "#ffffff"
+
+[palettes.cyberdream]
+palette0 = "#16181a"
+palette1 = "#ff6e5e"
+palette2 = "#5eff6c"
+palette3 = "#f1ff5e"
+palette4 = "#5ea1ff"
+palette5 = "#bd5eff"
+palette6 = "#5ef1ff"
+palette7 = "#ffffff"
+palette8 = "#3c4048"
+palette9 = "#ff6e5e"
+palette10 = "#5eff6c"
+palette11 = "#f1ff5e"
+palette12 = "#5ea1ff"
+palette13 = "#bd5eff"
+palette14 = "#5ef1ff"
+palette15 = "#ffffff"
+darkgreen = "#12A585"
+
+[hostname]
+ssh_only = false
+format = '[](fg:palette8)[$ssh_symbol$hostname]($style) '
+trim_at = '.'
+style = 'bold palette3 bg:palette8'
+
+# [sudo]
+# symbol = ' '
+# format = '[$symbol]($style)'
+# style = 'bold palette1 bg:palette8'
+# disabled = false
+
+[shell]
+fish_indicator = "\uee41 "
+nu_indicator = '󰟆 '
+format = '[$indicator]($style)[](fg:palette8)'
+disabled = false
+style = 'bold palette14 bg:palette8'
+
+[git_branch]
+symbol = "\ue725"
+format = '[$symbol\(]($style)[$branch(:$remote_branch)](palette13 bg:palette8)[\)]($style)'
+style = 'bold palette13 bg:palette8'
+
+[git_commit]
+style = 'bold palette2 bg:palette8'
+
+[git_state]
+style = 'bold palette3 bg:palette8'
+
+[git_status]
+staged = "[\uf046](bold darkgreen bg:palette8)"
+modified = "[\uf044](bold palette1 bg:palette8)"
+untracked = "[+](bold palette3 bg:palette8)"
+format = '([\[$modified$staged$untracked\]]($style))'
+style = 'palette13 bg:palette8'
+
+[custom.path]
+when = true
+command = "pcwd"
+format = ' [](fg:palette8)[ ](bold palette12 bg:palette8)[\[$output\]]($style)'
+style = 'palette12 bg:palette8'
+
+[directory]
+truncation_length = 3
+format = '[$read_only]($read_only_style)[](fg:palette8) '
+read_only_style = 'red bg:palette8'
+
+[fill]
+symbol = '─'
+style = 'bold palette14'
+
+[character]
+format = """
+[╰─$symbol](fg:palette14) """
+success_symbol = "[\ue285](bold darkgreen)"
+error_symbol = "[\ue285](bold palette1)"
+
+[time]
+disabled = false
+time_format = "%D %r"
+format = '[$time](palette4)[❯](palette2)'
