@@ -2,6 +2,8 @@ theme = cyberdream
 {{- if eq .chezmoi.os "darwin" }}
 command = /opt/homebrew/bin/fish
 macos-titlebar-style = tabs
+{{- else if eq .distro "fedora" }}
+command = /usr/bin/fish
 {{- end }}
 window-padding-x = 10
 background-opacity = 0.85
@@ -11,7 +13,7 @@ background-blur-radius = 20
 background-blur = true
 {{- end }}
 font-family = Annotation Mono
-font-family = Monaspace Radon Var
+# font-family = Monaspace Radon Var
 font-feature = "liga"
 font-feature = "ss01"
 font-variation = slnt=-10
