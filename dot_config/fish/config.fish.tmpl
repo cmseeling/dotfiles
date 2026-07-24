@@ -61,6 +61,9 @@ function history
     builtin history --show-time='%F %T ' $argv
 end
 
+# activate mise
+~/.local/bin/mise activate fish | source
+
 # Starship Prompt
 function starship_transient_prompt_func
     starship module time
