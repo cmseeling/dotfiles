@@ -5,6 +5,9 @@
 	email = cmseeling@gmail.com
 	name = chris
 
+[credential]
+    helper = /usr/lib/git-core/git-credential-libsecret
+
 [interactive]
     diffFilter = delta --color-only
 
