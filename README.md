@@ -1,6 +1,6 @@
 # dotfiles
 
-I use [tuckr](https://github.com/RaphGL/Tuckr) which is an alternative to GNU Stow to manage my dotfile deployment.
+I use [chezmoi](https://www.chezmoi.io/) to manage my dotfiles.
 
 ### Chezmoi config template
 ~/.config/chezmoi/chezmoi.yaml
