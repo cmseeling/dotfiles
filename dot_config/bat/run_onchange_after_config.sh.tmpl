@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# bat config hash: {{ include "dot_config/bat/config" | sha256sum }}
+# bat theme hash: {{ include "dot_config/bat/themes/empty_cyberdream.tmTheme" | sha256sum }}
+bat cache --build

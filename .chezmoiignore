@@ -1,5 +1,7 @@
 README.md
 
-{{- if ne .distro "fedora" }}
-.bashrc
+{{- if ne .compositors.niri true }}
+.config/gtk-3.0
+.config/niri
+.config/noctalia
 {{- end }}

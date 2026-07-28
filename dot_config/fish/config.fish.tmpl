@@ -60,10 +60,10 @@ end
 function history
     builtin history --show-time='%F %T ' $argv
 end
-
+{{ if eq .useMise true }}
 # activate mise
 /usr/bin/mise activate fish | source
-
+{{ end }}
 # Starship Prompt
 function starship_transient_prompt_func
     starship module time
@@ -88,7 +88,7 @@ function y
 end
 
 # directory manip aliases
-abbr -a ls eza -al --total-size --no-user --icons=auto -TL 1
+abbr -a ls eza -al --no-user --icons=auto -TL 1
 abbr -a ls-al ls -al
 # abbr -a cd z
 abbr -a .. up
