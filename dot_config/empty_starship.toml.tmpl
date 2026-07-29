@@ -1,0 +1,5 @@
+{{- if eq .headless true }}
+{{- template "starship-headless.tmpl" }}
+{{- else }}
+{{- template "starship-full.tmpl" }}
+{{- end }}

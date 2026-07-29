@@ -1,0 +1,78 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = false
+
+format = """
+$hostname\
+${custom.path}\
+[$git_branch\
+$git_commit\
+$git_state\
+$git_status]\
+(bg:palette8)\
+$character \
+"""
+
+palette = 'cyberdream'
+
+[palettes.cyberdream]
+palette0 = "#16181a"
+palette1 = "#ff6e5e"
+palette2 = "#5eff6c"
+palette3 = "#f1ff5e"
+palette4 = "#5ea1ff"
+palette5 = "#bd5eff"
+palette6 = "#5ef1ff"
+palette7 = "#ffffff"
+palette8 = "#3c4048"
+palette9 = "#ff6e5e"
+palette10 = "#5eff6c"
+palette11 = "#f1ff5e"
+palette12 = "#5ea1ff"
+palette13 = "#bd5eff"
+palette14 = "#5ef1ff"
+palette15 = "#ffffff"
+darkgreen = "#12A585"
+
+[hostname]
+ssh_only = false
+format = '[\[$hostname\]]($style)'
+trim_at = '.'
+style = 'bold palette3'
+
+# Arrow that changes color on success/failure
+[character]
+success_symbol = "[->](bold white)"
+error_symbol = "[->](bold red)"
+vicmd_symbol = "->"
+format = "$symbol"
+
+[custom.path]
+when = true
+command = "pcwd"
+format = '[ $output ]($style)'
+style = 'palette12'
+
+[git_branch]
+symbol = "\ue725"
+format = '[$symbol\(]($style)[$branch(:$remote_branch)](palette13 bg:palette8)[\)]($style)'
+style = 'bold palette13 bg:palette8'
+
+[git_commit]
+style = 'bold palette2 bg:palette8'
+
+[git_state]
+style = 'bold palette3 bg:palette8'
+
+[git_status]
+staged = "[\uf046](bold darkgreen bg:palette8)"
+modified = "[\uf044](bold palette1 bg:palette8)"
+untracked = "[+](bold palette3 bg:palette8)"
+format = '([\[$modified$staged$untracked\]]($style))'
+style = 'palette13 bg:palette8'
+
+[time]
+disabled = false
+time_format = "%D %r"
+format = '[$time ](blue)[=> ](palette2)'

@@ -5,3 +5,9 @@ README.md
 .config/niri
 .config/noctalia
 {{- end }}
+
+{{- if eq .headless true }}
+.gitignore
+.config/delta
+.config/ghostty
+{{- end }}
