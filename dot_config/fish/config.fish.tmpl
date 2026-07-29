@@ -1,13 +1,13 @@
-# source /usr/share/cachyos-fish-config/cachyos-config.fish
 {{- if eq .distro "cachyos" }}
+# source /usr/share/cachyos-fish-config/cachyos-config.fish
 source /usr/share/cachyos-fish-config/conf.d/done.fish
 {{ end }}
-
+{{- if ne .headless true }}
 ## Run fastfetch as welcome message
 function fish_greeting
     fastfetch
 end
-
+{{ end }}
 # Format man pages
 set -x MANROFFOPT -c
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
