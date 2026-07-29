@@ -7,7 +7,7 @@ README.md
 {{- end }}
 
 {{- if eq .headless true }}
-.gitignore
+.gitconfig
 .config/delta
 .config/ghostty
 {{- end }}
